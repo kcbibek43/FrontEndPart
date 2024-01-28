@@ -1,0 +1,47 @@
+<div class="spinner-container" *ngIf="isLoading">
+  <mat-spinner></mat-spinner>
+</div>
+<div class="container"  *ngIf="!isLoading">
+  <h2 *ngIf="role === 'tenant'">Search property for rent</h2>
+<h2 *ngIf="role === 'landlord'">Search your property</h2>
+
+<mat-form-field appearance="outline" class="search-field">
+  <input matInput [(ngModel)]="searchTerm" (ngModelChange)="search()" placeholder="Search for property">
+</mat-form-field>
+
+<div class="filters">
+  <mat-form-field appearance="outline" class="filter-field">
+    <input matInput [(ngModel)]="locationSearchTerm" (ngModelChange)="locationSearch()" placeholder="Location">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline"  class="filter-field">
+    <mat-select [(value)]="selectedPriceRange" placeholder="Price range" (valueChange)="filterByPriceRange()">
+      <mat-option value="1000000-5000000">1,000,000-5,000,000</mat-option>
+      <mat-option value="5000001-8000000">5,000,001-8,000,000</mat-option>
+      <mat-option value="8000001-12000000">8,000,001-12,000,000</mat-option>
+      <mat-option value="12000001-15000000">12,000,001-15,000,000</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline"  class="filter-field">
+    <mat-select placeholder="Room count" [(value)]="selectedRoomCount" (valueChange)="filterByRoomCount()">
+      <mat-option value="2">2</mat-option>
+      <mat-option value="3">3</mat-option>
+      <mat-option value="4">4</mat-option>
+      <mat-option value="5">5</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div class="properties-container">
+  <div (click)="viewProperty(property.id)" class="card" *ngFor="let property of filteredProperties" style="width: 18rem;">
+    <img src="../../assets/Img/{{ property.images[0] }}_frontal.jpg" alt="Property image" class="property-image">
+    <div class="property-details">
+      <h3 class="property-type">{{ property.type }}</h3>
+      <p class="property-location">{{ property.location }}</p>
+      <p class="property-rent">{{ property.rent | currency:'INR' }}</p>
+    </div>
+  </div>
+</div>
+</div>
+
+

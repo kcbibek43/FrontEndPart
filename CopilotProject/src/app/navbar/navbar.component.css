@@ -1,0 +1,54 @@
+
+.logout-button {
+  margin-left: auto;
+}
+
+/* Add this to your CSS file */
+
+button {
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #ddd; /* Change as needed */
+}
+
+button:active {
+  background-color: #bbb; /* Change as needed */
+  transform: scale(0.95); /* Makes the button look like it's being pressed */
+}
+.spacer {
+  flex: 1 1 auto;
+}
+.active {
+  color: #ffffff; /* Change as needed */
+  background-color: #7736e8; /* Change as needed */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); /* Add this line */
+}
+.button-container button {
+  margin-right: 10px;
+}
+.title {
+  font-weight: bold;
+}
+.button-container button:last-child {
+  margin-right: 0;
+}
+
+a{
+  text-decoration: none;
+  color: #fff;
+}
+
+.logout-button {
+  transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: #ddd; /* Change as needed */
+}
+
+.logout-button:active {
+  background-color: #bbb; /* Change as needed */
+  transform: scale(0.95); /* Makes the button look like it's being pressed */
+}

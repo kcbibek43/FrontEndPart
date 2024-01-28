@@ -1,0 +1,79 @@
+<!-- <header style="background-color: rgb(90, 76, 237); padding: 10px;">
+  <h1 style="color: white; font-family: Arial, sans-serif; font-size: 24px; font-weight: bold; text-align: left;">TenantFinder</h1>
+</header> -->
+
+<mat-toolbar color="primary">
+  <span class="title">TenantFinder</span>
+</mat-toolbar>
+<div class="container">
+  <!-- Header -->
+  <mat-card class="mt-5" *ngIf="isLoginMode">
+    <mat-card-content>
+      <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Email</mat-label>
+          <input matInput type="email" formControlName="email" >
+          <mat-error *ngIf="loginForm.get('email')?.invalid && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)">
+          Email is not valid.
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Password</mat-label>
+          <input matInput type="password" formControlName="password" >
+          <mat-error *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)">
+          </mat-error>
+        </mat-form-field>
+        <div class="button-group">
+          <button mat-raised-button color="primary" [disabled]="loginForm.invalid">Login</button>
+          <button mat-button (click)="switchMode()">Register</button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="mt-5" *ngIf="!isLoginMode">
+    <mat-card-content >
+      <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Name</mat-label>
+          <input matInput type="text" formControlName="name" >
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Email</mat-label>
+          <input matInput type="email" formControlName="email" >
+          <mat-error *ngIf="registerForm.get('email')?.invalid && (registerForm.get('email')?.dirty || registerForm.get('email')?.touched)">
+              Email is not valid.
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>UserName</mat-label>
+          <input matInput type="text" formControlName="userName" >
+          <mat-error *ngIf="registerForm.get('userName')?.invalid && (registerForm.get('userName')?.dirty || registerForm.get('userName')?.touched)">
+            UserName is required.
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Password</mat-label>
+          <input matInput type="password" formControlName="password" >
+          <mat-error *ngIf="registerForm.get('password')?.invalid && (registerForm.get('password')?.dirty || registerForm.get('password')?.touched)">
+            <div *ngIf="registerForm.get('password')?.errors?.['minlength']">Password should be at least 6 characters long.</div>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Role</mat-label>
+          <mat-select formControlName="role">
+            <mat-option value="Tenant">Tenant</mat-option>
+            <mat-option value="Landlord">Landlord</mat-option>
+          </mat-select>
+          <mat-error *ngIf="registerForm.get('role')?.invalid && (registerForm.get('role')?.dirty || registerForm.get('role')?.touched)">
+Role is required
+          </mat-error>
+        </mat-form-field>
+        <div class="button-group">
+          <button mat-raised-button color="primary" [disabled]="registerForm.invalid">Register</button>
+          <button mat-button (click)="switchMode()">Login</button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+
+</div>

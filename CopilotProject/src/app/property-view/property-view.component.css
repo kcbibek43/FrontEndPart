@@ -1,0 +1,95 @@
+h2 {
+  margin-bottom: 10px;
+}
+
+.search-field,
+.filter-field {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.short-search-field {
+  width: 50%; /* Adjust as needed */
+}
+.filters {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.property-card {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.property-image {
+  width: 100%;
+  height: 60%;
+  object-fit: cover;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.property-details {
+  padding: 20px;
+}
+.card {
+  border-radius: 8px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+}
+
+.card-img-top {
+  height: 50%;
+  object-fit: cover;
+}
+
+.properties-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-bottom: 60px;
+}
+
+
+.property-type {
+  color: #333;
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.property-location {
+  color: #666;
+  font-size: 1.2em;
+  margin-bottom: 0.5em;
+}
+
+.property-rent {
+  color: #999;
+  font-size: 1em;
+}
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.property-type {
+  font-weight: bold;
+  color: #673AB7; /* replace with your primary color */
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.property-location {
+  color: #666;
+  font-size: 1.2em;
+  margin-bottom: 0.5em;
+}
+
+.property-rent {
+  color: #999;
+  font-size: 1em;
+}

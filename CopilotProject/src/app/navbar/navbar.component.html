@@ -1,0 +1,23 @@
+<mat-toolbar color="primary">
+
+  <a class="title" routerLink="/home">Tenant Finder</a>
+  <span class="spacer"></span>
+
+  <!-- Landlord options -->
+  <ng-container *ngIf="role === 'landlord'" class="button-container">
+    <button mat-button routerLink="/home/addproperty" routerLinkActive="active">Add Property</button>
+    <button mat-button routerLink="/home/viewdocs" routerLinkActive="active">View Docs</button>
+    <button mat-button routerLink="/home/messagelist" routerLinkActive="active">Message List</button>
+    <button mat-button routerLink="/home/appointmentlist" routerLinkActive="active">Appointment List</button>
+  </ng-container>
+
+  <!-- Tenant options -->
+  <ng-container *ngIf="role === 'tenant'" class="button-container">
+    <button mat-button routerLink="/navbar" routerLinkActive="active">Navbar</button>
+  </ng-container>
+  <span class="spacer"></span>
+  <button class="logout-button" mat-icon-button routerLink="/">
+    <mat-icon>logout</mat-icon>
+  </button>
+</mat-toolbar>
+

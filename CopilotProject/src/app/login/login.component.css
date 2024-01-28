@@ -1,0 +1,58 @@
+
+
+
+button {
+  height: 40px; /* Adjust as needed */
+  font-size: 1.2em; /* Adjust as needed */
+  border-radius: 5px; /* Updated border radius */
+  border: 0.6px solid; /* Added border */
+  color: rgb(90, 76, 237); /* Updated color */
+  background-color: white; /* Added background color */
+  transition: background-color 0.3s, color 0.3s; /* Added transition */
+}
+
+button:hover {
+  background-color: rgb(90, 76, 237); /* Updated hover background color */
+  color: white; /* Updated hover color */
+}
+
+
+.button-group {
+  display: flex;
+  justify-content: space-between; /* Adjust as needed */
+}
+
+.error-message {
+  order: 3;
+  color: red;
+}
+
+
+mat-form-field {
+  width: 100%; /* Adjust as needed */
+}
+
+
+
+
+mat-card {
+  display: flex;
+  flex-direction: column;
+  width: 60%; /* Adjust as needed */
+  padding: 20px; /* Adjust as needed */
+}
+.container{
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.title {
+  color: white;
+  font-family: Arial, sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+}
+

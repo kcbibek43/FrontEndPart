@@ -1,0 +1,74 @@
+
+<div class="container" style="padding-bottom: 60px;">
+    <mat-card>
+        <form [formGroup]="propertyForm" (ngSubmit)="onSubmit()">
+            <div fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="start center">
+                <mat-form-field appearance="outline" fxFlex="50%">
+                    <mat-label>Location</mat-label>
+                    <input matInput formControlName="location">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" fxFlex="50%">
+                    <mat-label>Rent</mat-label>
+                    <input matInput formControlName="rent">
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="start center">
+                <mat-form-field appearance="outline" fxFlex="50%">
+                    <mat-label>Description</mat-label>
+                    <textarea matInput formControlName="description"></textarea>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" fxFlex="50%">
+                    <mat-label>Type</mat-label>
+                    <input matInput formControlName="type">
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="start center">
+                <mat-form-field appearance="outline" fxFlex="50%">
+                    <mat-label>Number of Rooms</mat-label>
+                    <input matInput formControlName="numOfRooms">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" fxFlex="50%">
+                    <mat-label>Available From</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="availableFrom">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </div>
+
+            <div style="display: flex;">
+                <div formArrayName="amenities" style="width: 50%;">
+                    <mat-label>Ameneties</mat-label>
+                    <span class="example-list-section">
+                        <ul style="display: flex; flex-wrap: wrap; list-style-type: none;">
+                            <li *ngFor="let amenity of ameneties; index as i" style="width: 50%;">
+                                <mat-checkbox [formControlName]="i">
+                                    {{amenity}}
+                                </mat-checkbox>
+                            </li>
+                        </ul>
+                    </span>
+                </div>
+
+                <div formArrayName="images" style="width: 50%;">
+                    <div *ngFor="let image of images.controls; index as i">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Image {{i + 1}}</mat-label>
+                            <input matInput [formControlName]="i">
+                        </mat-form-field>
+                    </div>
+                    <button mat-button type="button" (click)="addImage()">Add Image</button>
+                </div>
+            </div>
+
+
+            <div style="display: flex; justify-content: flex-end;">
+                <button mat-raised-button color="primary" type="submit">Submit</button>
+            </div>
+        </form>
+    </mat-card>
+</div>
