@@ -1,0 +1,41 @@
+Hi Copilot, Help me Help me to built a tenent finder application where angular 16 , bootstrap is used as frontend, dotnet core 6 web apis is used as backed and mongodb is used as database
+
+GitHub Copilot
+Sure, I can guide you through the process. Here's a high-level plan:
+
+Frontend (Angular + Bootstrap):
+
+Create a new Angular project.
+Install Bootstrap and integrate it with the Angular project.
+Create components for tenant listing, tenant details, and a form for adding a new tenant.
+Use Angular services to communicate with the backend.
+Backend (.NET Core 6 Web API):
+
+Create a new .NET Core Web API project.
+Define a Tenant model class.
+Create a MongoDB context class to handle database operations.
+Create a TenantsController with actions for CRUD operations.
+Database (MongoDB):
+
+Install MongoDB and create a new database.
+Create a tenants collection.
+
+
+
+
+
+
+create a from to add property to the data base with export interface Property { id: string; location: string; landLordId: string; rent: number; description: string; type: string; numOfRooms: number; isAvailable: boolean; availableFrom: Date; ameneties: string[]; images: string[]; } model where id will not be a form , loaction should be string , landlord id should be get the session storage id , descripetion should be string, type , isAvailabel should be true, available from should be date picker , amenetis should be a check box with Gym,Swimming Pool,Clubhouse,Games Room,Rooftop Lounge,Community Garden,Parking, and image id which should be at least below 100 create all using angular material , and the amenetise and images should be list and
+
+
+
+keep all the things in a card and a row should contain two from-field with apperance outline and and proper align and justify
+
+
+create a table where the headers will be s no. , Username , Property , Document Submitterd , and status. each column will contain sno. serial number from 1, username contain tenant id from document , property will contain a view button on which click will navigate you to the view property page , document subbmitted column will have view button as well but with different color and status will have a button where if the isVerified from doccument is true then it will have a disable buttton with verified written on it and if it is false then it will have a verify button with different color and make is verieifed of that button to true and make the dutton disable and change the button to verified
+
+
+create a new endpoint with different route to get document by tenant id using function in the services
+
+
+write function to get by tenant and landlord id with separate route and corresponging service function
