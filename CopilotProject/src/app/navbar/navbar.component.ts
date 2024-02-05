@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-  role = "landlord"
+  role = sessionStorage.getItem('role');
 
   getToolbarColor() {
     return this.role === 'landlord' ? 'primary' : 'accent';

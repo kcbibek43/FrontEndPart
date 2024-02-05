@@ -1,0 +1,128 @@
+.container {
+    display: flex;
+    height: calc(100vh - 65px - 40px);
+}
+
+li p {
+    font-size: 20px;
+  }
+
+.receivers-list {
+    width: 40%;
+    border-right: 1px solid #ddd;
+    overflow: auto;
+    padding: 10px;
+}
+
+.receivers-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.receivers-list li {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.receivers-list li:hover {
+    background-color: #f1f1f1;
+}
+
+.chat-card {
+    width: 60%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+mat-card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+}
+
+ul {
+    overflow: auto;
+    flex-grow: 1;
+}
+
+.input-container {
+    display: flex;
+}
+
+.input-container {
+    display: flex;
+}
+
+.input-container mat-form-field {
+    flex-grow: 1;
+}
+
+mat-card-content::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  mat-card-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  mat-card-content::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  
+  mat-card-content::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+ul {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+}
+
+li {
+    max-width: 60%;
+    padding: 10px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.chat-list {
+    list-style-type: none;
+    max-height: 300px; /* Adjust this value as needed */
+    overflow-y: auto;
+  }
+li.sender {
+    align-self: flex-end;
+    background-color: #DCF8C6;
+}
+
+li.receiver {
+    align-self: flex-start;
+    background-color: #ECE5DD;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+}
+
+.input-container mat-form-field {
+    flex-grow: 1;
+}
+
+li.User1 {
+    background-color: #DCF8C6; /* Change to desired color for User1 */
+  }
+  
+  li.User2 {
+    background-color: #ECE5DD; /* Change to desired color for User2 */
+  }

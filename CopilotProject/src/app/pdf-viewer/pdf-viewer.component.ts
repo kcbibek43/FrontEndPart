@@ -17,7 +17,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 export class PdfViewerComponent {
   pdfUrl: SafeResourceUrl;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: { pdfBase64: string }, private sanitizer: DomSanitizer) {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: { pdfBase64: string }, private sanitizer: DomSanitizer){
     const byteCharacters = atob(data.pdfBase64);
     const byteNumbers = Array.from(byteCharacters).map(ch => ch.charCodeAt(0));
     const byteArray = new Uint8Array(byteNumbers);

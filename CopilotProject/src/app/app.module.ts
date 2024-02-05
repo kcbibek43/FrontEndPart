@@ -20,7 +20,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { AddPropertyComponent } from './add-property/add-property.component';
 import { MessagelistComponent } from './messagelist/messagelist.component';
 import { ViewDocsComponent } from './view-docs/view-docs.component';
-import { AppointmentListComponent } from './appointment-list/appointment-list.component';
 import { FormsModule } from '@angular/forms';
 import { PdfViewerComponent } from './pdf-viewer/pdf-viewer.component';
 
@@ -38,7 +37,6 @@ import { PdfViewerComponent } from './pdf-viewer/pdf-viewer.component';
     AddPropertyComponent,
     MessagelistComponent,
     ViewDocsComponent,
-    AppointmentListComponent,
     PdfViewerComponent
   ],
   imports: [

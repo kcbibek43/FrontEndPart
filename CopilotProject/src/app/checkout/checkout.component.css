@@ -1,0 +1,55 @@
+.container {
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    margin-left: 1rem; /* Adjust as needed */
+  }
+.custom-file-upload {
+  padding: 10px;
+  border: 1px solid #ccc;
+  display: inline-block;
+  cursor: pointer;
+  /* Add more styles as needed */
+}
+
+.custom-file-upload:hover {
+  background-color: #f0f0f0;
+}
+
+.carousel-inner{
+  height: 100%;
+
+}
+
+#carouselExampleIndicators{
+  height: 55%;
+}
+
+
+mat-card {
+  margin: 20px;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
+}
+.carousel-item{
+  height: 100%;
+}
+
+img{
+  height: 100%;
+  width: 100%;
+}
+
+.details{
+  height: 31%;
+}
+
+.carousel {
+  border: 1px solid #ccc;
+  margin: 20px;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
+}

@@ -6,7 +6,7 @@ export interface Message {
 }
 
 export interface MessageDetails {
-  date: Date;
+  date?: Date;
   from: string;
   message: string;
 }

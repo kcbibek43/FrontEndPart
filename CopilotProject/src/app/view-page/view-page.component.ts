@@ -11,8 +11,10 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./view-page.component.css']
 })
 export class ViewPageComponent {
+  userRole : string = "";
   id: string | null = null;
   isLoading = true;
+  public coordinates : number[] = [];
   property: Property | undefined;
   review: Review = {
     id: '',
@@ -27,23 +29,28 @@ export class ViewPageComponent {
     rating: new FormControl('')
   });
   ngOnInit(): void {
+    this.userRole = sessionStorage.getItem('role')!;
     this.id = this.route.snapshot.paramMap.get('id');
     if (this.id) {
       this.propertyService.getPropertyById(this.id).subscribe(property => {
         this.property = property;
-        this.isLoading = false;
+        this.getReviews();
       });
-      this.getReviews();
     }
 
 }
 
-getReviews(): void {
-  this.reviewService.getReviews(this.id!).subscribe((reviews : Review)=> {
-    this.review = reviews;
-    this.isLoading = false;
-  });
-}
+    getReviews(): void {
+      this.reviewService.getReviews(this.id!).subscribe((reviews : Review)=> {
+        this.review = reviews;
+        this.isLoading = false;
+      },
+      (err) =>
+    {
+      this.isLoading = false;
+      console.log(err);
+    } );
+    }
 
 onSubmit(): void {
   console.log(this.reviewForm.value);
@@ -64,5 +71,15 @@ onSubmit(): void {
       
     });
   }
+}
+
+
+message: string = '';
+
+sendMessage(event: Event) {
+  event.preventDefault();
+  // Replace this with your send message code
+  console.log(this.message);
+  this.message = '';
 }
 }

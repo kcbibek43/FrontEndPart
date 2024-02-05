@@ -26,4 +26,14 @@ export class MessageService {
       }
       return this.http.get<Message[]>(url);
   }
+
+  // write code for update message in database
+  updateMessages(messages: Message) {
+    console.log(messages);
+    let url;
+    url = `${MESSAGES_API}/${messages.id}`;
+    console.log(url);
+    return this.http.put<Message>(url, messages);
+    console.log(messages);
+  }
 }

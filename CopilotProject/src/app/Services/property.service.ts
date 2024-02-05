@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { Property } from '../Models/Property';
-import { PROPERTIES_API, PROPERTIES_LANDLORDID_API } from '../constants/constants';
+import { PROPERTIES_API, PROPERTIES_LANDLORDID_API , MAP_URL_END, MAP_URL_START } from '../constants/constants';
 
 @Injectable({
   providedIn: 'root'
@@ -39,6 +39,10 @@ getPropertiesByLandlordId(id: string): Observable<Property[]> {
 
   // write a function to post the property to the database
   updateProperty(property: Property): Observable<Property> {
+    if (property.id) {
+      const url = `${PROPERTIES_API}/${property.id}`;
+      return this.http.put<Property>(url, property);
+    }
     return this.http.post<Property>(`${PROPERTIES_API}`, property);
   }
   
@@ -54,4 +58,12 @@ getPropertiesByLandlordId(id: string): Observable<Property[]> {
     }
     return throwError(errorMessage);
   }
+  // write the code to get the location geo coordinates from the address using map_url_start and map_url_end and location in the middle
+  getLocationCoordinates(address: string) {
+    const url = `${MAP_URL_START}${encodeURIComponent(address)}${MAP_URL_END}`;
+  
+    return this.http.get(url);
+  }
+
+
 }

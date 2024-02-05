@@ -1,1 +1,36 @@
+<div class="container">
+    <div class="receivers-list">
+        <h2>Receivers</h2>
+        <ul>
+            <div *ngFor="let receiver of users; let i = index" (click)="selectedReceiver = receiver; selectedReceiverIndex = i">
+              <li *ngIf="receiver !== userName">{{receiver}}</li>
+            </div>
+          </ul>
+    </div>
 
+    <mat-card class="chat-card">
+        <mat-card-content>
+            <!-- <mat-list>
+                <mat-list-item *ngFor="let message of messages[selectedReceiverIndex].messages" [ngClass]="{'sender': message.from === userName, 'receiver' : message.from !== userName  }">
+                    <p> {{message.message}} </p>
+                </mat-list-item>
+            </mat-list> -->
+            <div>
+                <ul class="chat-list">
+                    <li *ngFor="let message of messages[selectedReceiverIndex].messages" [ngClass]="{'sender': message.from === userName, 'receiver' : message.from !== userName  }">
+                      <p> {{message.message}} </p>
+                    </li>
+                  </ul>
+            </div>
+            <div class="input-container">
+                <mat-form-field appearance="outline" class="example-full-width">
+                    <textarea matInput placeholder="Type your message here..." [(ngModel)]="newMessage"></textarea>
+                </mat-form-field>
+
+                <button mat-icon-button (click)="sendMessage()">
+                    <mat-icon>send</mat-icon>
+                </button>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

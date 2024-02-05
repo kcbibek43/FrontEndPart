@@ -1,5 +1,7 @@
 
-
+.card-header {
+  margin-bottom: 20px;
+}
 
 button {
   height: 40px; /* Adjust as needed */

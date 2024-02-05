@@ -1,1 +1,72 @@
-<p>checkout works!</p>
+<div *ngIf="isLoading" class="col d-flex justify-content-center align-items-center" style="height: 100vh;">
+    <mat-spinner ></mat-spinner>
+  </div>
+<div class="container" *ngIf="!isLoading">
+    <div class="row">
+        <div class="col">
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title>Id Submissions</mat-card-title>
+                    <mat-card-subtitle>
+                        <ng-container *ngIf="!document.doc; else verificationStatus">
+                          <mat-icon>upload_file</mat-icon>
+                          Submit Document
+                        </ng-container>
+                        <ng-template #verificationStatus>
+                          <ng-container *ngIf="!document.isVerified; else verifiedStatus">
+                            <mat-icon>hourglass_empty</mat-icon>
+                            Verification Pending
+                          </ng-container>
+                          <ng-template #verifiedStatus>
+                            <mat-icon>check_circle</mat-icon>
+                            Verified
+                          </ng-template>
+                        </ng-template>
+                      </mat-card-subtitle>  
+                </mat-card-header>
+                <mat-card-content>
+                    <div class="container">
+                        <form>
+                            <div class="form-group">
+                                <div class="form-group d-flex align-items-center">
+                                    <input type="file" id="file" name="file" (change)="onFileSelected($event)" #fileInput >
+                                    <button type="submit" class="btn btn-primary ml-3" [disabled]="!document.doc" >Submit</button>       
+                                </div>
+                            </div>
+                        </form>
+                        <button (click)="openPdfViewer(document.doc)" class="btn btn-primary mt-3" [disabled]="!document.doc">Open PDF</button>
+                        <button (click)="payment()" class="btn btn-primary mt-3" [disabled]="!document.isVerified">{{!document.isVerified ? 'Verify Pending for Checkout' : 'Verified for Checkout Page'}}</button>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <div class="col">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100" src="../../assets/Img/{{ property!.images[0] }}_frontal.jpg" alt="First slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="../../assets/Img/{{ property!.images[0] }}_frontal.jpg" alt="Second slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="../../assets/Img/{{ property!.images[0] }}_frontal.jpg" alt="Third slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="../../assets/Img/{{ property!.images[0] }}_frontal.jpg"alt="Fourth slide">
+                    </div>
+                </div>
+            </div>
+            <mat-card class="details">
+                <mat-card-header>
+                    <mat-card-title>{{ property.type }}</mat-card-title>
+                    <mat-card-subtitle>{{ property.description }}</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                    <p>Location: {{ property.location }}</p>
+                    <p>Rent: {{ property.rent }}</p>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>
